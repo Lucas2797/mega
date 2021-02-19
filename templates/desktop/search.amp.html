@@ -1,0 +1,27 @@
+{% extends 'desktop/base2.amp.html' %}
+
+
+{% block content %}
+    <div class="search_page">
+        <form method="GET" action="{% url 'search' %}">
+            <label for="search_go">
+                <input type="text">
+            </label>
+            <input type="submit">
+        </form>
+    </div>
+
+    {% if filter1 %}
+    
+    <table class="search_page">
+        {% for o in filter1 %}
+        <li><a href="{% url 'detail_product' o.id %}">{{o.nome}}</a></li>
+        {% endfor %}
+    </table>
+
+    {% else %}
+        <p>Nenhum resultado</p>
+    {% endif %}
+
+{% endblock  %}
+

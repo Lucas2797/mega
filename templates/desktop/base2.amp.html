@@ -1,0 +1,1111 @@
+{% load static %} {% get_media_prefix as MEDIA_PREFIX %}
+<!doctype html>
+<html amp lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>{% block title %}JR Modas{% endblock %}</title>
+    <!-- AMP Canonical -->
+    <link rel="canonical" href="{% url 'home_product' %}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <!-- AMP imports -->
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery"
+        src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-social-share"
+        src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+    <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+
+    <!--AMP ANALYTICS-->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <!-- Google imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
+    <!-- ICON -->
+    <link rel="icon" href="{% static 'icons/jftransparent5.png' %}">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "Open-source framework for publishing content",
+            "datePublished": "2015-10-07T12:02:41Z",
+            "image": [
+                "logo.jpg"
+            ]
+        }
+    </script>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        /* any custom styles go here. */
+
+        /*BASIC BODY*/
+
+        body {
+            background-color: antiquewhite;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            padding-top: 94px;
+            padding-bottom: 1000px;
+        }
+
+        /* Navbar */
+        div.topnav {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            position:fixed;
+            top: 0;
+            z-index: 10;
+            float: left;
+            height: 150px;
+            background-image: linear-gradient(silver, white, silver) ;
+            opacity: 90%;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav.menu {
+        }
+
+            /* Search bar */
+        div.search{
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        input.search[type=text], select{
+            width: 20%;
+            height: 20px;
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+
+        div.profile{
+            float: left;
+            margin-left: 20%;
+        }
+
+        a.profile{
+            float: left;
+            margin-left: 200px;
+            font-size: 15px;
+            font-family: 'Lemon', cursive;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        div.links{
+            float: left;
+            display: inline-flex;
+            margin-left: 20px;
+            margin-top: 25px;
+        }
+
+
+        div.logo{
+            float: left;
+            margin-left: 15%;
+            height: 100px;
+        }
+
+        a.logo{
+            margin-top: 0px;
+            text-decoration: none;
+        }
+
+        h1.logo{
+            margin-left: 35px;
+            font-family: 'Lemon', cursive;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            font-size: 30px;
+            float: left;
+            line-height: 0px;
+            padding: 0;
+            top: 0;
+        }
+
+        h2.logo{
+            font-family: 'Lemon', cursive;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            font-size: 30px;
+            text-decoration: none;
+            line-height: 0px;
+            padding: 0;
+            top: 0;
+        }
+
+
+        a.menu {
+            margin-top: 12px;
+            margin-left: 50px;
+            text-decoration: none;
+            font-family: 'Lemon', cursive;
+            font-size: 21px;
+            border: none;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            padding-right: 20px;
+            transition-property: color, padding-left, padding-right, font-size;
+            transition-duration: 0.5s;
+        }
+
+        a.menu:hover {
+            padding-right: 25px;
+            font-size: 25px;
+            color: black;
+        }
+
+        /*Navbar Close*/
+
+        /* page */
+        div.page{
+            width: 80%;
+            margin-left: 9%;
+            margin-top: 200px;
+            background-color: azure;
+        }
+        /* PAGE END */
+
+
+        /*Whatsapp Button*/
+
+        .whats a {
+            background-image: url("{% static 'icons/whats-icon.png' %}") no-repeat top left;
+            bottom: 50px;
+            border: 150%;
+            padding: 0%;
+            padding-left: 0;
+            margin: 0px;
+            border-color: black;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            z-index: 1;
+            right: 0;
+            position: fixed;
+            opacity: 70%;
+            transition: padding 1s
+        }
+
+        .whats a:hover {
+            padding: 15px 32px;
+            opacity: 90%;
+        }
+
+        .whats a:active {
+            opacity: 100%;
+        }
+
+        .chat{
+            background-image: url("{% static 'icons/chat-icon.jpg' %}") no-repeat top left;
+            bottom: 180px;
+            padding: 0;
+            padding-left: 0;
+            margin: 0px;
+            text-align: center;
+            z-index: 1;
+            right: 0;
+            position: fixed;
+            opacity: 70%;
+            transition-property: padding, opacity;
+            transition-duration: 0.5s;
+        }
+
+        .chat a:hover {
+            padding: 15px 32px;
+            opacity: 90%;
+        }
+
+        .chat a:active {
+            opacity: 100%;
+        }
+
+        /* HOME PAGE*/
+        div.page{
+            float: left;
+            display: flex;
+        }
+
+
+        div.start{
+            background-color: white;
+            z-index: 5;
+            width: 100%;
+            height: 1000px;
+            float: left;
+        }
+
+
+        div.loading{
+            float: left;
+            background-color: transparent;
+            width: 100%;
+            z-index: 1;
+        }
+        /*first gallery*/
+         t {
+            position: initial;
+        }
+
+        .home-gallery {
+            background-color: black;
+            opacity: 90%;
+            z-index: 0;
+            margin-top: 5px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .home-gallery:hover {
+            opacity: 100%;
+        }
+
+        .cover {
+            object-fit: cover;
+            padding-bottom: 0px;
+        }
+
+        /*first gallery close*/
+
+
+        /* text*/
+        div.home-text {
+            margin-top: 0px;
+            padding-top: 0px;
+            text-align: center;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-text {
+            font-family: 'Abril Fatface', cursive;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+        }
+
+        .home-title {
+            color: rgb(255, 0, 0);
+            cursor: crosshair;
+            text-decoration: 10px;
+        }
+
+        .filter-text{
+            font-size: 20px;
+            font-family: 'Abril Fatface', cursive;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(0, 0, 0);
+        }
+
+        .contact-text{
+            padding: 0;
+            margin: 0;
+            color: rgb(255, 0, 0)
+        }
+        
+        .center{
+            text-align: center;
+        }
+
+        .footer-text{
+            font-family: 'Langar', cursive;
+        }
+
+    /* text end*/
+
+        /*mini gallery*/
+
+
+
+        div.column {
+            float: left;
+            margin-left: 80px;
+            text-align: center;
+            opacity: 50%;
+        }
+
+        a.link {
+            text-decoration: none;
+        }
+
+        /*mini gallery END*/
+
+        /*product page*/
+        .text-h1 {
+            padding-bottom: 0px;
+            text-align: center;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        div.filter {
+            background-color: rgba(255, 115, 0, 0.3);
+            width: 230px;
+            height: 100%;
+            float: left;
+            margin-left: 20px;
+            align-items: center;
+            text-align: center;
+            border-style: groove;
+            border-color: silver;
+            position: fixed;
+        }
+
+        div.filter-item {
+            margin-top: 10px;
+        }
+        
+        div.ranging{
+            padding: 0;
+        }
+
+        input.ranging{
+            width: 90%;
+        }
+
+        div.calsa_size{
+        }
+
+        p.price{
+            padding: 0;
+            margin: 0;
+            font-size: 13px;
+            text-indent: 3px;
+            word-spacing: 9px;
+        }
+
+        p.age{
+            padding: 0;
+            margin: 0;
+            font-size: 15px;
+            text-indent: 5px;
+            word-spacing: 20px;
+        }
+        .all_products {
+            align-items: center;
+            margin-left: 300px;
+        }
+
+        .product {
+            display: inline-block;
+            width: 200px;
+            height: 380px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+            margin-left: 35px;
+            border-color: white;
+            border-style: dashed;
+            border-width: 0.2px;
+            transition-property: width, height, border-color, box-shadow;
+            transition-duration: 0.5s, 0.5s, 0.5s, 0.5s;
+        }
+
+        .product:hover {
+            box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgb(168, 95, 0);
+            width: 250px;
+            height: 450px;
+        }
+
+        .img {
+            width: 100%;
+        }
+
+        div.infos {
+
+            color: rgb(255, 0, 0);
+            text-align: center;
+            float: left;
+        }
+
+        p.infos {
+            margin-top: 0px;
+            text-align: left;
+            font-size: 20px;
+            font-family: 'Abril Fatface', cursive;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+        }
+
+        a.infos {
+            text-decoration: none;
+            font-size: 20px;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            padding-bottom: 0px;
+            font-family: 'Sriracha', cursive;
+        }
+
+        p.tamanhos{
+            margin-top: 0px;
+            display: inline-flex;
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            font-family: 'Sriracha', cursive;
+        }
+
+        input.size_radio{
+            width: 15px;
+            height: 15px;
+        }
+
+        input.size_radio:checked{
+            width: 13px;
+            height: 13px;
+        }
+
+        form.sizing{
+            float: left;
+        }
+        input.size-but{
+            float: right;
+            background: url("{% static 'products/add_to_cart2.png' %}")no-repeat;
+            background-size: 50px;
+            color: inherit;
+            border: none;
+            height: 60px;
+            width: 60px;
+            font: inherit;
+            opacity: 80%;
+            cursor: pointer;
+            outline: inherit;
+            bottom: 0;
+            right: 0;
+        }
+
+        input.size-but:hover{
+            opacity: 100%;
+
+        }
+
+        input.filter-but{
+            background-color: rgba(168, 95, 0, 0.6);
+            border: groove;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-property: padding;
+            transition-duration: 0.2s;
+        }
+
+        input.filter-but:hover{
+            padding: 18px 35px;
+        }
+
+
+        /* END PRODUCT */
+        /* DETAIL PAGE*/
+        div.detail {
+            padding-left: 30px;
+            text-align: center;
+            float: left;
+            margin-top: 100px;
+        }
+
+        div.carousel-preview {
+            float: left;
+            margin-top: 110px;
+            padding-left: 110px;
+        }
+
+        div.buy {
+            margin-top: 100px;
+            width: 42%;
+            float: left;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button.preview {
+            margin-bottom: 10px;
+        }
+
+        div.related{
+            padding-top: 0px;
+            display: inline-block;
+            width: 500px;
+            background-color: rgba(250, 250, 250, 0.3);
+        }
+
+        div.related-prod{
+            display: flex;
+            width: 50px;
+        }
+
+        p.related{
+        text-align: center;
+        color: rgba(190, 190, 190, 0.363);
+        text-shadow: 2px 2px rgb(255, 0, 0);
+        font-family: 'Sriracha', cursive;
+        line-height: 14px;
+        }
+
+        input.add{
+            background-color: rgba(255, 115, 0, 0.5);
+            border-style: groove;
+            height: 50px;
+            width: 500px;
+            color: black;
+            cursor: grab;
+            font-size: 20px;
+            opacity: 95%;
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+            transition-property: color, font-size, box-shadow, opacity;
+            transition-duration: 0.5s, 0.5s, 0.5s;
+        }
+
+        input.add:hover {
+            color: rgb(255, 0, 0);
+            opacity: 100%;
+            font-size: 23px;
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+        a.buy {
+            background-color: rgba(255, 115, 0, 0.5);
+            border-style: groove;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-right: 100px;
+            padding-left: 100px;
+            margin-top: 20px;
+            height: 50px;
+            color: black;
+            text-decoration: none;
+            cursor: grab;
+            font-size: 20px;
+            opacity: 95%;
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+            transition-property: color, font-size, box-shadow, opacity;
+            transition-duration: 0.5s, 0.5s, 0.5s;
+        }
+
+        a.buy:hover {
+            color: rgb(255, 0, 0);
+            opacity: 100%;
+            font-size: 23px;
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        a.buy:active {
+            cursor: grabbing;
+            font-size: 20px;
+        }
+
+        /* END DETAIL /*
+        /* AUTOMATIC */
+        div.automatic {
+            font-size: 20px;
+            background-size: inherit;
+            width: 500px;
+            height: 250px;
+            margin-left: 30%;
+            margin-top: 150px;
+            background-image: url("{% static 'products/automatic.jpg' %}");
+            text-align: center;
+
+        }
+
+        form.automatic {
+            padding-top: 110px;
+        }
+
+        /*  END AUTOMATIC */
+        /* CART  */
+        .tabling {
+            align-items: center;
+            margin-left: 270px;
+            margin-top: 120px;
+            width: auto;
+        }
+
+        table.cart {
+            background-color: rgba(255, 115, 0, 0.5);
+            opacity: 90%;
+            border-style: double;
+            border-color: black;
+            border-collapse: collapse;
+        }
+
+        th.first {
+            font-family: 'Sriracha', cursive;
+            border-style: none;
+            color: white;
+            padding-right: 20px;
+            background-color: black;
+        }
+
+        tr.first {
+            opacity: 100%;
+            background-color: black;
+        }
+
+        td.cart {
+            font-family: 'Sriracha', cursive;
+        }
+
+        tr.cart {
+            background-color: rgba(255, 115, 0, 0.5);
+        }
+
+        tr.cart:hover {
+            background-color: rgba(255, 115, 0, 1);
+            opacity: 100%;
+        }
+
+        th.cart {
+            border-style: groove;
+        }
+
+        tr.total {
+            background-color: white;
+        }
+
+        div.cart-but {
+            margin-top: 50px;
+        }
+
+        a.cart-but {
+            margin-right: 265px;
+        }
+
+        .pl15 {
+            padding-left: 15px;
+        }
+
+        /* END CART */
+        /*CHECK OUT*/
+        div.checkout {
+            margin-left: 8%;
+            margin-top: 10%;
+            float: left;
+            background-color: rgba(255, 255, 255, 0.9);
+
+        }
+
+        table.checkout {
+            border-collapse: collapse;
+            background-color: white;
+            border-color: black;
+        }
+
+        tr.checkout {
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        tr.checkout:hover {
+            box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        th.checkout {}
+
+        div.form {
+            width: 500px;
+            float: right;
+            margin-right: 25px;
+            margin-left: 10px;
+            text-align: center;
+            box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input.send {
+            background-color: orange;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        label.text {
+            margin-top: 30px;
+            top: 20px;
+        }
+        /* CONTACT */
+        div.box-form{
+            float: left;
+            display: block;
+            margin-left: 55px;
+            width: 400px;
+            text-align: center;
+            background-color: rgba(255, 115, 0, 0.5);
+            border-style: groove;
+            border-color: silver;
+            box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        div.page{
+            float: left;
+            width: 100%;
+        }
+
+        div.contact{
+            margin-top: 205px;
+            margin-left: 260px;
+            width: 150px;
+            float: left;
+        }
+        
+        div.endereco{
+            margin-right: 90px;
+            margin-top: 200px;
+            margin-left: 100px;
+            float: right;
+            width: 300px;
+            height: 100px;
+        }
+
+        h1.contato{
+            margin-left: 45%;
+            padding: 0px;
+        }
+
+        h2.contact-text{
+            margin-bottom: 10px;
+        }
+
+        input.box-form{
+            margin-top: 0px;
+            padding:0;
+            margin: 0px;
+        }
+        /* CONTACT END */
+        /* FOOTER */
+                /* FOOTER  */
+
+        
+        footer{
+            margin-top: 20px;
+            height: 20px;
+            background-color: transparent;
+            width: 100%;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            overflow: hidden;
+            transition-property: background-color, height;
+            transition-duration: 1s;
+        }
+
+        footer:hover{
+            height: 300px;
+            background-color: rgba(168, 95, 0, 0.6);
+        }
+
+
+        a.footer{
+            color: black;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        a.footer:hover{
+            text-decoration:underline;
+            font-size: 16px;
+        }
+        small.footer{
+            text-align: center;
+            margin-left: 48%;
+            text-decoration: none;
+            color: rgb(168, 95, 0);
+        }
+
+        div.hide{
+            margin-left: 20px;
+            text-align: center;
+            margin-top: 0px;
+            padding: 0px;
+            height: 75px;
+            float: left;
+        }
+
+        div.sac{
+            margin-left: 50px;
+            float: left;
+        }
+
+        
+
+        amp-img.sac-item{
+            box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+        }
+
+        div.sac-item{
+            width: 400px;
+        }
+
+        span.sac-item{
+            margin-left: 10px;
+            text-align: left;
+            top: 0;
+            margin-top: 0px;
+        }
+
+        div.site-map{
+            float: left;
+        }
+
+        div.suport{
+            margin-top: 0px;
+            float: left;
+            margin-left: 35px;
+        }
+
+        ul.footer{
+            list-style:circle
+        }
+
+        h2.site-map{
+            line-height: 15px;
+        }
+
+        h2.suport{
+            margin-left: 60px;
+            line-height: 15px;
+        }
+
+        /* FOOTER END */
+
+
+        /* END FOOTER */
+        /* TEST */
+    </style>
+</head>
+
+<body>
+    <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+            "vars" : {
+                "gtag_id": "<UA-173702006-1>",
+                "config" : {
+                "<UA-173702006-1>": { "groups": "default" }
+                }
+            }
+        }
+        </script>
+    </amp-analytics>
+    <!--TOP NAV-->
+    <div class="topnav" amp-fx="float-in-top">
+        <div class="search">
+            <form class="search" method="GET" class="search_home" action="{% url 'search' %}">    
+                <input class="search" type="text" placeholder="Buscar">
+                <input class="search" type="submit">
+            </form>
+
+        </div>
+        <nav class="menu">
+            <div class="links">
+                <a class="menu" href="{% url 'contact' %}">CONTATO</a>
+                <a class="menu" href="{% url 'contact' %}">CONTATO</a>
+            </div>
+            <div class="logo">
+                <a class="logo" href="{% url 'home_product' %}">
+                    <h1 class="logo">Mega </h1>
+                    <h2 class="logo">Magazine</h2>
+                </a>
+            </div>
+            <div class="profile">
+                {% if not request.user.is_anonymous %}
+                    <a class="profile" href="{% url 'order_summary' %}">olá {{request.user}}</a>
+                {% else %}
+                    <a href="profile" href=""></a>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+    <!--TOP NAV END-->
+    <!--BUTTO WHATS-->
+    <div class="whats">
+        <a href="https://wa.me/5521994534836" target="_blank">
+            <amp-img src="{% static 'icons/whats-icon.png' %}" width="100" height="100" layout="intrinsic" alt="whats">
+            </amp-img>
+        </a>
+    </div>
+        <!--BUTTON Chat-->
+    <div class="chat">
+        <a href="{% url 'chat' %}" target="_blank">
+            <amp-img src="{% static 'icons/chat-icon.png' %}" width="100" height="100" layout="intrinsic" alt="chat">
+            </amp-img>
+        </a>
+    </div>
+    <!--BLOCK-->
+    <div class="page">
+        {% block content %} {% endblock %}
+    </div>
+    <!--BLOCK END -->
+    <!-- Start Footer -->
+    <div class="footer">
+        <footer>
+            <div class="shown">
+                <a class="footer" href="https://c2view.com.br/">
+                    <small class="footer">
+                        © C2View
+                    </small>
+                </a>
+            </div>
+            <div class="footering">
+                <div class="sac">
+                    <div class="sac-item">
+                        <amp-img class="sac-item" src="{% static 'icons/location3.png' %}"
+                        width="30"
+                        height="30"
+                        layout="fixed"
+                        alt="">
+                        </amp-img>
+                        <span class="sac-item footer-text">Av. Carlos Mariguella - n°737 loja 02 - Barroco, Maricá - RJ, 24936-435</span>
+                    </div>
+                    <div class="sac-item">
+                        <amp-img class="sac-item" src="{% static 'icons/phone1.png' %}"
+                          width="30"
+                          height="30"
+                          layout="fixed"
+                          alt="">
+                        </amp-img>
+                        <span class="footer-text sac-item">(21)99453-4836</span>
+                    </div>
+                    <div class="sac-item">
+                        <amp-img class="sac-item" src="{% static 'icons/email1.png' %}"
+                          width="30"
+                          height="30"
+                          layout="fixed"
+                          alt="">
+                        </amp-img>
+                        <span class="footer-text sac-item">jrmodas@contato.com</span>
+                    </div>
+                </div>
+                <div class="site-map">
+                    <h2 class="footer-text site-map">Mapa do site</h2>
+                    <ul class="footer">
+                        <li class="footer-text"><a class="footer" href="{% url 'home_product' %}">Inicial</a></li>
+                        <li class="footer-text"><a class="footer" href="{% url 'list_product' %}">Produtos</a></li>
+                        <li class="footer-text"><a class="footer" href="{% url 'company' %}">Empresa</a></li>
+                        <li class="footer-text"><a class="footer" href="{% url 'contact' %}">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="hide">
+                    <a href="{% url 'home_product' %}">
+                        <amp-img src="{% static 'icons/jftransparent5.png' %}"
+                        width="160"
+                        height="150"
+                        layout="fixed"
+                        alt="">
+                        </amp-img>
+                    </a>
+                </div>
+                <div class="suport">
+                    <h2 class="footer-text suport">Suporte</h2>
+                    <ul class="footer">
+                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Métodos de Pagamento</a></li>
+                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Política de Troca</a></li>
+                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Suporte Online</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="second">
+                <div class="payments">
+
+                </div>
+                <div class="sends">
+
+                </div>
+                <div class="security">
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+</body>
+
+</html>
