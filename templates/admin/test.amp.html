@@ -1,0 +1,182 @@
+{% load static %}
+<!doctype html>
+<html ⚡>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="canonical" href="index.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <meta name="amp-script-src" content="sha384-HPDoGk8frchz7KbExcQzh9_jocJ8X3v3OHZ23znWLhC20S1C05OUnZpcSJgLMiQ_">
+
+    <link rel="manifest" href="{% url 'manifestjson' %}">
+
+    <script async custom-element="amp-install-serviceworker"
+        src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+
+    <style amp-custom>
+
+    </style>
+
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+</head>
+
+<body>
+
+    <h1 id="test" on='tap:test.hide'>ok</h1>
+
+
+
+    <amp-script width="200" height="100" script="hello-world">
+        <button>Hello amp-script!</button>
+    </amp-script>
+
+    <amp-install-serviceworker src="{% url 'sw.js' %}" data-iframe-src="{% url 'install_sw' %}" layout="nodisplay">
+    </amp-install-serviceworker>
+
+
+
+    <!-- Add [target="amp-script"] to the <script> element. -->
+    <script id="hello-world" type="text/plain" target="amp-script">
+        var elements = [
+            'Hydrogen',
+            'Helium',
+            'Lithium',
+            'Beryllium'
+        ];
+
+
+        
+        // var a = 5
+
+        // function test(a) {
+        //     console.log(a);
+        //     elements.map(test2)
+        // };
+
+        // let atest = (a) => { console.log(a) };
+
+        // atest(10);
+
+
+        // function test2(e) {
+        //     if (e.length >= 7) {
+        //         console.log('ok')
+        //     }
+        // }
+
+        // elements.map(test2)
+
+        let btest = e => {
+            if (e.length >= 8) {
+                return true
+            }
+        }
+
+        let dtest = (l) => {
+            for (var i in l) {
+                if (btest(l[i])) {
+                    console.log('ok')
+                }
+            }
+        };
+
+        let etest = (l) => {
+            var c = l.map(btest)
+            console.log(c)
+        }
+
+
+        etest(elements);
+
+        dtest(elements);
+
+
+
+        elements.map(function (element) {
+            return element.length;
+        }); // esta sentença retorna o array: [8, 6, 7, 9]
+
+        // A função regular acima pode ser escrita como a arrow function abaixo
+        elements.map((element) => {
+            return element.length;
+        }); // [8, 6, 7, 9]
+
+    </script>
+
+    <amp-img src="{% static 'm1.png' %}" width="200" height="200" layout="fixed" alt="">
+    </amp-img>
+
+
+</body>
+
+</html>

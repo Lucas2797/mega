@@ -6,10 +6,11 @@ from cart.models import Pedido, Item
 from django.db.models import Q
 from cart.models import Item, Pedido
 from django.utils import timezone
+from .forms import ContactForm
 
 
 #FRONT#
-def amp_home(request):
+def home_view(request):
     if Banner.objects.filter(tipo='Inicial'):
         for b in Banner.objects.filter(tipo='Inicial'):
             filter1 = b.banner_image.all()
@@ -28,9 +29,21 @@ def amp_home(request):
         return render (request, 'desktop/home.amp.html', context)
     else:
         return render (request, 'amp/home.amp.html', context)
+    
+    
 
 def get(request):
     return self.object
+
+
+def list_view1(request, tag):
+    query = Produto.objects.filter(tag__tags=tag)
+    context = {
+        'query': query,
+    }
+    return render(request, 'desktop/AllList.amp.html', context)
+
+
 
 def list_view(request):
     model_query = request.GET.get('model_query', '')
@@ -129,4 +142,17 @@ def search_view(request):
     
     return render (request, 'desktop/search.amp.html', context)
 
+
+def test_amp_view(request):
+    context = {
+        
+    }
+    return render(request, 'admin/test.amp.html', context)
+
+
+def test_view(request):
+    context = {
+        
+    }
+    return render(request, 'admin/test.html', context)
 

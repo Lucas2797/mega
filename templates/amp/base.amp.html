@@ -11,21 +11,24 @@
     <link rel="canonical" href="{% url 'home_product' %}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <!-- AMP imports -->
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+
+
+    <script async custom-element="amp-lightbox-gallery"
+        src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-social-share"
+        src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+    <script async custom-element="amp-fx-collection"
+        src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
 
     <!--AMP ANALYTICS-->
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <amp-analytics type="gtag" data-credentials="include">
-    <script type="application/json">
+        <script type="application/json">
     {
     "vars" : {
         "gtag_id": "<GA_MEASUREMENT_ID>",
@@ -36,9 +39,9 @@
     }
     </script>
     </amp-analytics>
-    
+
     <!-- Google imports -->
-    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -59,55 +62,69 @@
             -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
             animation: -amp-start 8s steps(1, end) 0s 1 normal both
         }
-        
+
         @-webkit-keyframes -amp-start {
             from {
                 visibility: hidden
             }
+
             to {
                 visibility: visible
             }
         }
-        
+
         @-moz-keyframes -amp-start {
             from {
                 visibility: hidden
             }
+
             to {
                 visibility: visible
             }
         }
-        
+
         @-ms-keyframes -amp-start {
             from {
                 visibility: hidden
             }
+
             to {
                 visibility: visible
             }
         }
-        
+
         @-o-keyframes -amp-start {
             from {
                 visibility: hidden
             }
+
             to {
                 visibility: visible
             }
         }
-        
+
         @keyframes -amp-start {
             from {
                 visibility: hidden
             }
+
             to {
                 visibility: visible
             }
         }
-    </style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
     <style amp-custom>
         /* any custom styles go here. */
-        
+
         /*BASIC BODY*/
 
         body {
@@ -122,7 +139,7 @@
         /* Navbar */
 
 
-        header.burger{
+        header.burger {
             background-color: rgb(255, 0, 0);
             height: 35px;
             width: 100%;
@@ -132,7 +149,7 @@
             z-index: 999;
         }
 
-        div.burger{
+        div.burger {
             height: inherit;
             width: inherit;
             position: fixed;
@@ -145,10 +162,10 @@
             border-color: orange;
             border-width: 1px;
         }
-        
 
 
-        h1.burger-icon{
+
+        h1.burger-icon {
             margin-top: 20px;
             font-size: 30px;
             margin-left: 10px;
@@ -156,7 +173,7 @@
             text-shadow: 0.6px 0.6px rgb(0, 0, 0);
         }
 
-        h2.user{
+        h2.user {
             font-size: 24px;
             padding-bottom: 0px;
             font-family: 'Abril Fatface', cursive;
@@ -164,7 +181,7 @@
             text-shadow: 1px 1px rgb(0, 0, 0);
         }
 
-        a.user{
+        a.user {
             padding-bottom: 0px;
             margin-left: 33%;
             padding-right: 0;
@@ -175,7 +192,7 @@
         }
 
 
-        amp-sidebar{
+        amp-sidebar {
             background-image: url("{% static 'products/back1.jpg' %}");
             background-position-y: -100px;
             background-position-x: -50px;
@@ -185,15 +202,15 @@
             text-decoration: none;
         }
 
-        ul.sidebar{
+        ul.sidebar {
             margin-top: 20px;
             padding-left: 0;
             opacity: 100%;
         }
 
-        li.sidebar{
+        li.sidebar {
             width: 100%;
-            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);      
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
             margin-right: 35px;
             margin-top: 2px;
             border-style: groove;
@@ -203,11 +220,11 @@
             height: 50px;
         }
 
-        li.sidebar:hover{
+        li.sidebar:hover {
             background-color: white;
         }
 
-        a.sidebar{
+        a.sidebar {
             width: inherit;
             height: inherit;
             text-decoration: none;
@@ -216,46 +233,48 @@
             text-align: center;
             margin-top: 20px;
         }
-        
-        a.sidebar:active{
+
+        a.sidebar:active {
             background-color: white;
         }
 
-        p.sidebar{
+        p.sidebar {
             font-size: 20px;
             margin-top: 5px;
             font-family: 'Abril Fatface', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 1px 1px rgba(255, 115, 0, 2);
-            background-color:rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
         }
-        button.sidebar{
+
+        button.sidebar {
             width: inherit;
             height: inherit;
         }
 
-        p.sidebar:hover{
+        p.sidebar:hover {
             color: rgba(190, 190, 190, 0.363);
             margin-top: 10px;
             background-color: white;
-            
+
         }
-        h1.sidebar{
+
+        h1.sidebar {
             text-align: center;
-            text-decoration:double;
+            text-decoration: double;
             text-decoration-style: double;
         }
 
-        amp-sidebar.sidebar2{
+        amp-sidebar.sidebar2 {
             width: 400px;
         }
 
-        div.close_sidebar{
+        div.close_sidebar {
             z-index: 20;
         }
 
-        div.social{
-        }
+        div.social {}
+
         /*Navbar Close*/
 
         /*Whatsapp Button*/
@@ -277,18 +296,18 @@
             position: fixed;
             opacity: 90%;
             transition: padding 1s
-          }
+        }
 
         .whats a:hover {
             padding: 15px 32px;
             opacity: 90%;
-          }
+        }
 
-        .whats a:active{
+        .whats a:active {
             opacity: 100%;
         }
 
-        .chat{
+        .chat {
             background-image: url("{% static 'icons/chat-icon.jpg' %}") no-repeat top left;
             bottom: 100px;
             padding: 0;
@@ -314,7 +333,7 @@
 
         /*first gallery*/
 
-        div.first{
+        div.first {
             position: initial;
         }
 
@@ -328,7 +347,7 @@
         .home-gallery:hover {
             opacity: 100%;
         }
-        
+
         .cover {
             object-fit: cover;
             padding-bottom: 0px;
@@ -338,7 +357,7 @@
 
 
         /*texts*/
-        div.home-text{
+        div.home-text {
             text-align: center;
             margin-top: 35px;
         }
@@ -353,7 +372,7 @@
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        h2.home-text{
+        h2.home-text {
             font-size: 25px;
         }
 
@@ -363,7 +382,7 @@
             text-decoration: 10px;
         }
 
-        .product-text{
+        .product-text {
             font-family: 'Abril Fatface', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 1px 1px rgb(255, 0, 0);
@@ -372,40 +391,41 @@
 
         }
 
-        .filter-text{
+        .filter-text {
             font-size: 20px;
             font-family: 'Abril Fatface', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 2px 2px rgb(0, 0, 0);
         }
 
-        .center{
+        .center {
             text-align: center;
         }
+
         /*texts*/
 
         /*mini gallery*/
-        div.column{
+        div.column {
             padding-top: 10px;
             text-align: center;
             margin-left: 0;
             padding-bottom: 0px;
         }
 
-        amp-carousel.mini-gallery{
+        amp-carousel.mini-gallery {
             padding-bottom: 0px;
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        a.link{
+        a.link {
             text-decoration: none;
         }
 
-         /*mini gallery END*/
-        
-         /*product page*/
-        .text-h1{
-            color:rgb(255, 0, 0);
+        /*mini gallery END*/
+
+        /*product page*/
+        .text-h1 {
+            color: rgb(255, 0, 0);
             text-align: center;
             margin-top: 60px;
             font-family: 'Abril Fatface', cursive;
@@ -432,21 +452,21 @@
         }
 
 
-        h1.filter{
+        h1.filter {
             font-size: 15px;
             color: white;
             background-color: black;
         }
 
-        div.ranging{
+        div.ranging {
             padding: 0;
         }
 
-        input.ranging{
+        input.ranging {
             width: 90%;
         }
 
-        p.price{
+        p.price {
             padding: 0;
             margin: 0;
             font-size: 13px;
@@ -454,22 +474,24 @@
             word-spacing: 16px;
         }
 
-        p.age{
+        p.age {
             padding: 0;
             margin: 0;
             font-size: 15px;
             text-indent: 5px;
             word-spacing: 26px;
         }
-        .all_products{
+
+        .all_products {
             text-align: center;
             display: inline;
         }
-        div.img{
+
+        div.img {
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        div.product{
+        div.product {
             background-color: rgba(255, 255, 255, 0.3);
             margin-top: 20px;
             padding-left: 0;
@@ -484,21 +506,21 @@
             border-width: 0.2px;
             transition-property: width, height, border-color, box-shadow;
             transition-duration: 1s, 1s, 1s, 1s;
-        }  
+        }
 
 
-        .infos{
+        .infos {
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 1px 1px rgb(255, 0, 0);
             text-align: center;
             text-decoration: none;
         }
 
-        a.infos{
+        a.infos {
             padding-bottom: 0px;
         }
 
-        p.infos-nome{
+        p.infos-nome {
             font-family: 'Sriracha', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 2px 2px rgb(255, 0, 0);
@@ -507,7 +529,7 @@
             margin: 0px;
         }
 
-        p.infos{
+        p.infos {
             line-height: 15px;
             text-align: left;
             margin-left: 25%;
@@ -516,23 +538,23 @@
             font-size: 18px;
             margin-bottom: 0px;
         }
-        
-        input.size_radio{
+
+        input.size_radio {
             width: 15px;
             height: 15px;
         }
 
-        input.size_radio:checked{
+        input.size_radio:checked {
             width: 13px;
             height: 13px;
         }
 
-        form.sizing{
+        form.sizing {
             float: left;
             display: inline-flex;
         }
 
-        input.size-but{
+        input.size-but {
             float: right;
             background: url("{% static 'products/add_to_cart2.png' %}")no-repeat;
             background-size: 50px;
@@ -548,14 +570,14 @@
             right: 0;
         }
 
-        input.size-but:hover{
+        input.size-but:hover {
             opacity: 100%;
 
         }
 
         /* END PRODUCT */
 
-                /* DETAIL PAGE*/
+        /* DETAIL PAGE*/
         div.detail {
             text-align: center;
             margin-top: 50px;
@@ -575,8 +597,7 @@
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        button.preview {
-        }
+        button.preview {}
 
 
         .buy {
@@ -605,24 +626,25 @@
             box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
         }
 
-        
+
         .buy:active {
             cursor: grabbing;
             font-size: 20px;
         }
 
-        div.detail-form{
+        div.detail-form {
             display: flex;
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .size_radio{
+        .size_radio {
             margin-top: 20px;
         }
+
         /* END DETAIL /*
         
         /* AUTOMATIC */
-        div.automatic{
+        div.automatic {
             font-size: 20px;
             background-size: inherit;
             width: 300px;
@@ -635,18 +657,19 @@
 
         }
 
-        form.automatic{
+        form.automatic {
             padding-top: 60px;
         }
+
         /*  END AUTOMATIC */
 
         /* CART  */
-        div.cart{
+        div.cart {
             margin-top: 70px;
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        table.cart{
+        table.cart {
             background-color: rgba(255, 115, 0, 0.5);
             opacity: 100%;
             border-style: double;
@@ -654,7 +677,8 @@
             border-collapse: collapse;
             font-size: 12px;
         }
-        th.first{
+
+        th.first {
             font-family: 'Sriracha', cursive;
             border-style: none;
             color: white;
@@ -664,44 +688,44 @@
             border-width: 0.1px;
         }
 
-        tr.first{
+        tr.first {
             opacity: 100%;
             background-color: black;
         }
-        
-        td{
+
+        td {
             font-family: 'Sriracha', cursive;
         }
 
-        tr{
+        tr {
             background-color: rgba(255, 115, 0, 0.5);
         }
 
-        tr:hover{
+        tr:hover {
             background-color: rgba(255, 115, 0, 1);
             opacity: 100%;
         }
 
-        th{
-            border-style:groove;
+        th {
+            border-style: groove;
         }
 
-        tr.total{
+        tr.total {
             background-color: white;
         }
 
-        div.cart-but{
+        div.cart-but {
             margin-top: 60px;
-            display:flex;
+            display: flex;
             float: left;
             margin-left: 0px;
         }
 
-        button.cart-but{
+        button.cart-but {
             margin-left: 35px;
         }
 
-        a.cart-but{
+        a.cart-but {
             font-size: 15px;
             color: black;
             float: left;
@@ -710,7 +734,7 @@
             text-decoration: none;
         }
 
-        .pl15{
+        .pl15 {
             padding-left: 15px;
         }
 
@@ -736,8 +760,7 @@
             box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
         }
 
-        th.checkout {
-        }
+        th.checkout {}
 
         div.form {
             background-color: rgba(255, 255, 255, 0.6);
@@ -756,8 +779,9 @@
         label.text {
             top: 20px;
         }
-                /* CONTACT */
-        div.box-form{
+
+        /* CONTACT */
+        div.box-form {
             display: block;
             margin-top: 20px;
             width: 100%;
@@ -767,21 +791,22 @@
             border-color: silver;
         }
 
-        h1.contato{
+        h1.contato {
             text-align: center;
             width: 100%;
             margin-top: 10%;
             padding: 0px;
         }
 
-        input.box-form{
+        input.box-form {
             margin-top: 0px;
-            padding:0;
+            padding: 0;
             margin: 0px;
         }
+
         /* CONTACT END */
         /* FOOTER */
-        div.footer{
+        div.footer {
             background-color: rgba(255, 115, 0, 0);
             bottom: 0px;
             margin-bottom: 0px;
@@ -795,106 +820,108 @@
 
         /* END FOOTER */
         /* TEST */
-        .test{
+        .test {
             padding-top: 0px;
             margin-top: 0px;
         }
-
     </style>
 
 </head>
 
 <body>
     <!--SIDE BAR-->
-        <!--BURGER-->
+    <!--BURGER-->
     <header class="burger">
         <div class="burger" role="button" on="tap:sidebar1.open" tabindex="0">
             <h1 class="burger-icon">☰</h1>
             {% if not request.user.is_anonymous %}
-                <a class="user" href="{% url 'order_summary' %}"><h2 class="user"> olá, {{request.user}}</h2></a>
-                <a class='cart_icon' href="{% url 'order_summary' %}">
-                    <amp-img src="{% static 'products/add_to_cart2.png' %}"
-                    width="30px"
-                    height="30px"
-                    layout="fixed"
+            <a class="user" href="{% url 'order_summary' %}">
+                <h2 class="user"> olá, {{request.user}}</h2>
+            </a>
+            <a class='cart_icon' href="{% url 'order_summary' %}">
+                <amp-img src="{% static 'products/add_to_cart2.png' %}" width="30px" height="30px" layout="fixed"
                     alt="add_to_cart">
-                    </amp-img>
-                </a>
+                </amp-img>
+            </a>
             {% endif %}
         </div>
     </header>
-        <!--BURGER END-->
+    <!--BURGER END-->
     <amp-sidebar class="sidebar" id="sidebar1" layout="nodisplay" side="left">
-        <div role="button" aria-label="close sidebar" on="tap:sidebar1.close" tabindex="" class="close-sidebar filter-text">✕</div>
+        <div role="button" aria-label="close sidebar" on="tap:sidebar1.close" tabindex=""
+            class="close-sidebar filter-text">✕</div>
         <ul class="sidebar">
             <h1 class="sidebar home-text">JR</h1>
-            <li class="sidebar"><a class="sidebar" href="{% url 'home_product' %}"><button class="sidebar"><p class="sidebar"> Home </p></button></a></li>
-            <li class="sidebar"><button class="sidebar" on="tap:sidebar2.open"><p class="sidebar"> Produtos</p></button></li>
-            <li class="sidebar"><a class="sidebar" href="{% url 'contact' %}"><button class="sidebar"><p class="sidebar"> Contact </p></button></a></li>
+            <li class="sidebar"><a class="sidebar" href="{% url 'home_product' %}"><button class="sidebar">
+                        <p class="sidebar"> Home </p>
+                    </button></a></li>
+            <li class="sidebar"><button class="sidebar" on="tap:sidebar2.open">
+                    <p class="sidebar"> Produtos</p>
+                </button></li>
+            <li class="sidebar"><a class="sidebar" href="{% url 'contact' %}"><button class="sidebar">
+                        <p class="sidebar"> Contact </p>
+                    </button></a></li>
             {% if not request.user.is_anonymous %}
-                <li><h1 class="filter-text">{{request.user}}</h1></li>
-                <a class='cart_icon' href="{% url 'order_summary' %}">
-                    <amp-img src="{% static 'products/add_to_cart2.png' %}"
-                    width="40px"
-                    height="40px"
-                    layout="fixed"
+            <li>
+                <h1 class="filter-text">{{request.user}}</h1>
+            </li>
+            <a class='cart_icon' href="{% url 'order_summary' %}">
+                <amp-img src="{% static 'products/add_to_cart2.png' %}" width="40px" height="40px" layout="fixed"
                     alt="add_to_cart">
-                    </amp-img>
-                </a>  
+                </amp-img>
+            </a>
             {% endif %}
-                <!--social-->
-                <div class="social">
-                    <a class="social" href="https://www.instagram.com/jr_modas_marica/" target="_blank">
-                        <amp-img class="social-amp-img" src="{% static 'icons/insta-icon.png' %}" width="30" height="30"
-                            layout="fixed" alt=""> </amp-img>
-                    </a>
-                    <a class="social" href="https://www.facebook.com/jrmoda" target="_blank">
-                        <amp-img class="social-amp-img" src="{% static 'icons/fb-icon2.png' %}" width="30" height="30"
-                            layout="fixed" alt=""></amp-img>
-                    </a>
-                    <a class="social" href="{% url 'contact' %}" target="_blank">
-                        <amp-img class="social-amp-img" src="{% static 'icons/email-icon6.png' %}" width="30"
-                            height="30" layout="fixed" alt=""> </amp-img>
-                    </a>
-                    <a class="social" href="{% url 'admin_product' %}" target="_blank">
-                            <amp-img class="social-amp-img" src="{% static 'icons/gear-icon.png' %}" width="30"
-                                height="30" layout="fixed" alt=""> </amp-img>
-                    </a>
-                </div>
+            <!--social-->
+            <div class="social">
+                <a class="social" href="https://www.instagram.com/jr_modas_marica/" target="_blank">
+                    <amp-img class="social-amp-img" src="{% static 'icons/insta-icon.png' %}" width="30" height="30"
+                        layout="fixed" alt=""> </amp-img>
+                </a>
+                <a class="social" href="https://www.facebook.com/jrmoda" target="_blank">
+                    <amp-img class="social-amp-img" src="{% static 'icons/fb-icon2.png' %}" width="30" height="30"
+                        layout="fixed" alt=""></amp-img>
+                </a>
+                <a class="social" href="{% url 'contact' %}" target="_blank">
+                    <amp-img class="social-amp-img" src="{% static 'icons/email-icon6.png' %}" width="30" height="30"
+                        layout="fixed" alt=""> </amp-img>
+                </a>
+                <a class="social" href="{% url 'admin_product' %}" target="_blank">
+                    <amp-img class="social-amp-img" src="{% static 'icons/gear-icon.png' %}" width="30" height="30"
+                        layout="fixed" alt=""> </amp-img>
+                </a>
+            </div>
         </ul>
     </amp-sidebar>
 
     <amp-sidebar hidden class="sidebar2" id="sidebar2" layout="nodisplay" side="left">
         <div role="button" aria-label="close sidebar" on="tap:sidebar2.close" tabindex="" class="close-sidebar">✕</div>
         <ul class="sidebar">
-            <li class="sidebar"><a class="sidebar" href="{% url 'list_product' %}"><button class="sidebar"><p class="sidebar"> Todos </p></button></a></li>
-            <li class="sidebar"><a class="sidebar" href="{% url 'kids_list_product' %}"><button class="sidebar"><p class="sidebar"> Criança </p></button></a></li>
-            <li class="sidebar"><a class="sidebar" href="{% url 'adult_list_product' %}"><button class="sidebar"><p class="sidebar"> Adulto </p></button></a></li>
+            <li class="sidebar"><a class="sidebar" href="{% url 'list_product' %}"><button class="sidebar">
+                        <p class="sidebar"> Todos </p>
+                    </button></a></li>
+            <li class="sidebar"><a class="sidebar" href="{% url 'kids_list_product' %}"><button class="sidebar">
+                        <p class="sidebar"> Criança </p>
+                    </button></a></li>
+            <li class="sidebar"><a class="sidebar" href="{% url 'adult_list_product' %}"><button class="sidebar">
+                        <p class="sidebar"> Adulto </p>
+                    </button></a></li>
         </ul>
-      </nav>
+        </nav>
     </amp-sidebar>
     <!--SIDE BAR END-->
     <!--BUTTO WHATS-->
     <div class="whats">
         <a href="https://wa.me/5521994534836" target="_blank">
-            <amp-img src="{% static 'icons/whats-icon.png' %}"
-            width="70"
-            height="70"
-            layout="intrinsic"
-            alt="whats">
+            <amp-img src="{% static 'icons/whats-icon.png' %}" width="70" height="70" layout="intrinsic" alt="whats">
             </amp-img>
-    </a>
+        </a>
     </div>
 
     <div class="chat">
         <a class="chat" href="{% url 'chat' %}" target="_blank">
-            <amp-img src="{% static 'icons/chat-icon.png' %}"
-            width="70"
-            height="70"
-            layout="intrinsic"
-            alt="whats">
+            <amp-img src="{% static 'icons/chat-icon.png' %}" width="70" height="70" layout="intrinsic" alt="whats">
             </amp-img>
-    </a>
+        </a>
     </div>
     <!--BLOCK-->
     {% block content %} {% endblock %}

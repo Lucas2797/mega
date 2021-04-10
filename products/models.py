@@ -6,7 +6,38 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 
 
+class Tags(models.Model):
+    tags = models.CharField(max_length=30)
+    sub = models.BooleanField(default=False)
+
+    def __str__(self):
+            return '%s' % (self.tags)
+
+    def clean(self):
+        mod = Tags.objects.filter(tags=self.tags)
+        if mod.exists():
+            raise ValidationError('Tag Já Existe')
+        
+    def save(self, *args, **kwargs):
+        self.tags = self.tags.capitalize()
+        super().save(*args, **kwargs)
+
+
+class SubTags(models.Model):
+    tag = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
+    subtag = models.CharField(max_length=50)
+    
+    def save(self, *args, **kwargs):
+        if self.tag.sub == False:
+            t1 = Tags.objects.get(id=self.tag.id)
+            t1.sub = True
+            t1.save()
+            super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
+
+
 class Produto (models.Model):
+    tag = models.ManyToManyField(Tags)
     nome = models.CharField(max_length=200)
     preco = models.DecimalField(max_digits=8, decimal_places=2)
     created_time = models.DateTimeField(auto_now=True)
@@ -49,52 +80,6 @@ class Produto (models.Model):
 
 
 
-
-
-class Tags(models.Model):
-
-    tags_choices = [
-        ('Eletronico', (
-                ('Computador', 'Computador'),
-                ('Casa', 'Casa'),
-                ('Som', 'Som'),
-                ('Video', 'Video'),
-                ('Perifericos', 'Perifericos'),
-            )
-        ),
-        ('Acessorio', (
-                ('Relogio', 'Relogio'),
-                ('Oculos', 'Oculos'),
-                ('Joia', 'Joia'),
-            )
-        ),
-        ('Telefone', (
-                ('Samsumg', 'Samsumg'),
-                ('Xiaomi', 'Xiaomi'),
-                ('Huawei', 'Huawei'),
-                ('iPhone', 'iPhone'),
-                ('Carregador', 'Carregador'),
-                ('Fone', 'Fone'),
-            )
-        ),
-        ('unknown', 'Unknown'),
-    ]
-
-    product = models.ForeignKey(Produto, related_name='tags', on_delete=models.SET_NULL, null=True)
-    tags = models.CharField(max_length=30)
-
-    def __str__(self):
-            return '%s-%s-%s' % (self.tags, self.sexo)
-
-    def clean(self):
-        mod = Tags.objects.filter(tags = self.tags, publico=self.publico, sexo=self.sexo)
-        if mod.exists():
-            raise ValidationError('Tags Já Existe')
-
-
-
-
-
 class Estoque(models.Model):
     product = models.ForeignKey(Produto, on_delete=models.SET_NULL, null=True, related_name='storage')
     tamanho = models.CharField(max_length=100, null=True)
@@ -121,7 +106,7 @@ def get_image_filename(instance, filename):
 
 
 class Imagem (models.Model):
-    product = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name='images')
+    product = models.ForeignKey(Produto, on_delete=models.SET_NULL, related_name='images', null=True)
     image = models.ImageField(upload_to=get_image_filename)
 
 

@@ -5,15 +5,14 @@
 <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>{% block title %}JR Modas{% endblock %}</title>
+    <title>{% block title %}MegaMagazine{% endblock %}</title>
     <!-- AMP Canonical -->
     <link rel="canonical" href="{% url 'home_product' %}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <!-- AMP imports -->
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <meta name="amp-script-src" content="sha384-JrV0wXlCiZIZ9z0ZZSdvw23F1v96JeoQT5FG7GN0eXtL9HJLEAbmwR_GCpjf_gpL">
+
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-lightbox-gallery"
         src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
@@ -21,21 +20,29 @@
         src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
-    <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+    <script async custom-element="amp-fx-collection"
+        src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+    <script async custom-element="amp-base-carousel"
+        src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <!-- Service WOrker -->
+    <link rel="manifest" href="{% url 'manifestjson' %}">
+    <script async custom-element="amp-install-serviceworker"
+        src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
 
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
     <!--AMP ANALYTICS-->
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <!-- Google imports -->
-    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
+    <script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
     <!-- ICON -->
-    <link rel="icon" href="{% static 'icons/jftransparent5.png' %}">
+    <link rel="icon" href="{% static 'icons/m1.png' %}">
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -120,7 +127,7 @@
         /*BASIC BODY*/
 
         body {
-            background-color: antiquewhite;
+            background-color: white;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -130,44 +137,88 @@
         }
 
         /* Navbar */
-        div.topnav {
+        div.nav {
             overflow: hidden;
             position: fixed;
             width: 100%;
-            position:fixed;
+            position: fixed;
             top: 0;
             z-index: 10;
             float: left;
-            height: 150px;
-            background-image: linear-gradient(silver, white, silver) ;
+            background-image: linear-gradient(rgba(172, 170, 170, 0.2), white, rgba(122, 120, 120, 0.2));
             opacity: 90%;
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        nav.menu {
+        /* TOPNAV */
+        div.topnav {
+            z-index: 2;
+            overflow: hidden;
+            position: fixed;
+            display: flex;
+            width: 100%;
+            height: 50px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.2), white, rgba(255, 0, 0, 0.8));
         }
 
-            /* Search bar */
-        div.search{
+        div.secure {
+            width: 30%;
+        }
+
+        ul.secure {
+            display: flex;
+            list-style: none;
+        }
+
+        li.secure {
+            border-left: 0.2px;
+            border-right: 0px;
+            border-bottom: 0px;
+            border-top: 0px;
+            margin-left: 5px;
+            border-style: groove;
+        }
+
+        a.secure {
+            color: grey;
+        }
+
+        a.secure:hover {
+            color: red;
+        }
+
+        div.search {
             text-align: center;
+            margin-top: 3px;
+            width: 40%;
+        }
+
+        input.search[type=text],
+        select {
             margin-top: 0px;
-        }
-
-        input.search[type=text], select{
-            width: 20%;
-            height: 20px;
+            width: 40%;
+            height: 30px;
             box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-
+            transition-property: height, width;
+            transition-duration: 0.5s, 0.5s;
         }
 
+        input.search:hover {
+            height: 40px;
+            width: 42%;
+        }
 
+        input.search:active {
+            height: 40px;
+            width: 42%;
+        }
 
-        div.profile{
+        div.profile {
             float: left;
-            margin-left: 20%;
+            margin-left: 5%;
         }
 
-        a.profile{
+        a.profile {
             float: left;
             margin-left: 200px;
             font-size: 15px;
@@ -178,64 +229,146 @@
             text-decoration: none;
         }
 
-        div.links{
-            float: left;
-            display: inline-flex;
-            margin-left: 20px;
-            margin-top: 25px;
-        }
+        /* topnav end */
+        /* logo */
 
+        div.logo {}
 
-        div.logo{
-            float: left;
-            margin-left: 15%;
-            height: 100px;
-        }
-
-        a.logo{
+        a.logo {
+            text-align: center;
             margin-top: 0px;
             text-decoration: none;
         }
 
-        h1.logo{
-            margin-left: 35px;
+        h1.logo {
             font-family: 'Lemon', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 2px 2px rgb(255, 0, 0);
             font-size: 30px;
-            float: left;
             line-height: 0px;
             padding: 0;
             top: 0;
         }
 
-        h2.logo{
+        h2.logo {
             font-family: 'Lemon', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 2px 2px rgb(255, 0, 0);
             font-size: 30px;
             text-decoration: none;
             line-height: 0px;
-            padding: 0;
-            top: 0;
+        }
+
+        /* logo end */
+
+        /* botnav */
+        div.botnav {
+            width: 100%;
+            margin-top: 45px;
+            overflow: hidden;
+            top: 0px;
+            position: fixed;
+
+        }
+
+        ul.botnav {
+            list-style: none;
+        }
+
+        li.links {
+            margin-right: 10%;
+        }
+
+        div.open {
+            height: 500px;
+            width: 100%;
+            display: flex;
+            border-bottom-left-radius: 30%;
+            border-bottom-right-radius: 30%;
+        }
+
+        /* CATEGORY */
+        div.cat {
+            width: 40%;
+            border-style: groove;
+            border-left: silver;
         }
 
 
-        a.menu {
-            margin-top: 12px;
-            margin-left: 50px;
+        div.cat-links {
+            margin-left: 40px;
+        }
+
+        div.cat-link {
+            margin-top: 10px;
+        }
+
+        a.cat {
             text-decoration: none;
-            font-family: 'Lemon', cursive;
-            font-size: 21px;
-            border: none;
+            font-size: 17px;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 2px 2px rgb(255, 0, 0);
-            padding-right: 20px;
             transition-property: color, padding-left, padding-right, font-size;
             transition-duration: 0.5s;
         }
 
-        a.menu:hover {
+        a.cat:hover {
+            padding-right: 25px;
+            font-size: 25px;
+            color: black;
+        }
+
+        div.cat-list {
+            border-style: groove;
+            border-color: rgba(255, 0, 0, 0.5);
+            background-color: blue;
+        }
+
+
+        div.cat-select {
+            display: none;
+        }
+
+        div.cat-product {
+            text-align: center;
+            width: 130px;
+            height: 250px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+            margin-left: 10px;
+            border-color: white;
+            border-style: dashed;
+            border-width: 0.2px;
+        }
+
+
+        a.cat-product {
+            text-decoration: none;
+            font-size: 12px;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            transition-property: color, padding-left, padding-right, font-size;
+            transition-duration: 0.5s;
+        }
+
+        a.cat-product:hover {
+            padding-right: 25px;
+            font-size: 25px;
+            color: black;
+        }
+
+        /* CATEGORY END */
+
+        a.links {
+            text-decoration: none;
+            font-size: 21px;
+            border: none;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            transition-property: color, padding-left, padding-right, font-size;
+            transition-duration: 0.5s;
+        }
+
+        a.links:hover {
             padding-right: 25px;
             font-size: 25px;
             color: black;
@@ -244,12 +377,11 @@
         /*Navbar Close*/
 
         /* page */
-        div.page{
-            width: 80%;
-            margin-left: 9%;
-            margin-top: 200px;
-            background-color: azure;
+        div.page {
+            width: 100%;
+            background-color: white;
         }
+
         /* PAGE END */
 
 
@@ -283,7 +415,7 @@
             opacity: 100%;
         }
 
-        .chat{
+        .chat {
             background-image: url("{% static 'icons/chat-icon.jpg' %}") no-repeat top left;
             bottom: 180px;
             padding: 0;
@@ -308,13 +440,8 @@
         }
 
         /* HOME PAGE*/
-        div.page{
-            float: left;
-            display: flex;
-        }
 
-
-        div.start{
+        div.start {
             background-color: white;
             z-index: 5;
             width: 100%;
@@ -323,22 +450,25 @@
         }
 
 
-        div.loading{
+        div.loading {
             float: left;
             background-color: transparent;
             width: 100%;
             z-index: 1;
         }
+
         /*first gallery*/
-         t {
-            position: initial;
+
+        div.first {
+            margin-top: 0px;
+            border-style: dashed;
         }
+
 
         .home-gallery {
             background-color: black;
             opacity: 90%;
             z-index: 0;
-            margin-top: 5px;
             padding-top: 0px;
             padding-bottom: 0px;
         }
@@ -375,28 +505,28 @@
             text-decoration: 10px;
         }
 
-        .filter-text{
+        .filter-text {
             font-size: 20px;
             font-family: 'Abril Fatface', cursive;
             color: rgba(190, 190, 190, 0.363);
             text-shadow: 2px 2px rgb(0, 0, 0);
         }
 
-        .contact-text{
+        .contact-text {
             padding: 0;
             margin: 0;
             color: rgb(255, 0, 0)
         }
-        
-        .center{
+
+        .center {
             text-align: center;
         }
 
-        .footer-text{
+        .footer-text {
             font-family: 'Langar', cursive;
         }
 
-    /* text end*/
+        /* text end*/
 
         /*mini gallery*/
 
@@ -422,7 +552,7 @@
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
 
-        
+
         div.filter {
             background-color: rgba(255, 115, 0, 0.3);
             width: 230px;
@@ -439,19 +569,18 @@
         div.filter-item {
             margin-top: 10px;
         }
-        
-        div.ranging{
+
+        div.ranging {
             padding: 0;
         }
 
-        input.ranging{
+        input.ranging {
             width: 90%;
         }
 
-        div.calsa_size{
-        }
+        div.calsa_size {}
 
-        p.price{
+        p.price {
             padding: 0;
             margin: 0;
             font-size: 13px;
@@ -459,13 +588,14 @@
             word-spacing: 9px;
         }
 
-        p.age{
+        p.age {
             padding: 0;
             margin: 0;
             font-size: 15px;
             text-indent: 5px;
             word-spacing: 20px;
         }
+
         .all_products {
             align-items: center;
             margin-left: 300px;
@@ -496,7 +626,6 @@
         }
 
         div.infos {
-
             color: rgb(255, 0, 0);
             text-align: center;
             float: left;
@@ -520,7 +649,7 @@
             font-family: 'Sriracha', cursive;
         }
 
-        p.tamanhos{
+        p.tamanhos {
             margin-top: 0px;
             display: inline-flex;
             margin-bottom: 10px;
@@ -530,20 +659,21 @@
             font-family: 'Sriracha', cursive;
         }
 
-        input.size_radio{
+        input.size_radio {
             width: 15px;
             height: 15px;
         }
 
-        input.size_radio:checked{
+        input.size_radio:checked {
             width: 13px;
             height: 13px;
         }
 
-        form.sizing{
+        form.sizing {
             float: left;
         }
-        input.size-but{
+
+        input.size-but {
             float: right;
             background: url("{% static 'products/add_to_cart2.png' %}")no-repeat;
             background-size: 50px;
@@ -559,12 +689,12 @@
             right: 0;
         }
 
-        input.size-but:hover{
+        input.size-but:hover {
             opacity: 100%;
 
         }
 
-        input.filter-but{
+        input.filter-but {
             background-color: rgba(168, 95, 0, 0.6);
             border: groove;
             color: white;
@@ -576,7 +706,7 @@
             transition-duration: 0.2s;
         }
 
-        input.filter-but:hover{
+        input.filter-but:hover {
             padding: 18px 35px;
         }
 
@@ -607,27 +737,27 @@
             margin-bottom: 10px;
         }
 
-        div.related{
+        div.related {
             padding-top: 0px;
             display: inline-block;
             width: 500px;
             background-color: rgba(250, 250, 250, 0.3);
         }
 
-        div.related-prod{
+        div.related-prod {
             display: flex;
             width: 50px;
         }
 
-        p.related{
-        text-align: center;
-        color: rgba(190, 190, 190, 0.363);
-        text-shadow: 2px 2px rgb(255, 0, 0);
-        font-family: 'Sriracha', cursive;
-        line-height: 14px;
+        p.related {
+            text-align: center;
+            color: rgba(190, 190, 190, 0.363);
+            text-shadow: 2px 2px rgb(255, 0, 0);
+            font-family: 'Sriracha', cursive;
+            line-height: 14px;
         }
 
-        input.add{
+        input.add {
             background-color: rgba(255, 115, 0, 0.5);
             border-style: groove;
             height: 50px;
@@ -648,6 +778,7 @@
             font-size: 23px;
             box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
         }
+
         a.buy {
             background-color: rgba(255, 115, 0, 0.5);
             border-style: groove;
@@ -675,7 +806,7 @@
             box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
         }
 
-        
+
         a.buy:active {
             cursor: grabbing;
             font-size: 20px;
@@ -807,8 +938,9 @@
             margin-top: 30px;
             top: 20px;
         }
+
         /* CONTACT */
-        div.box-form{
+        div.box-form {
             float: left;
             display: block;
             margin-left: 55px;
@@ -819,20 +951,17 @@
             border-color: silver;
             box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.2);
         }
-        
-        div.page{
-            float: left;
-            width: 100%;
-        }
 
-        div.contact{
+
+
+        div.contact {
             margin-top: 205px;
             margin-left: 260px;
             width: 150px;
             float: left;
         }
-        
-        div.endereco{
+
+        div.endereco {
             margin-right: 90px;
             margin-top: 200px;
             margin-left: 100px;
@@ -841,26 +970,27 @@
             height: 100px;
         }
 
-        h1.contato{
+        h1.contato {
             margin-left: 45%;
             padding: 0px;
         }
 
-        h2.contact-text{
+        h2.contact-text {
             margin-bottom: 10px;
         }
 
-        input.box-form{
+        input.box-form {
             margin-top: 0px;
-            padding:0;
+            padding: 0;
             margin: 0px;
         }
+
         /* CONTACT END */
         /* FOOTER */
-                /* FOOTER  */
+        /* FOOTER  */
 
-        
-        footer{
+
+        footer {
             margin-top: 20px;
             height: 20px;
             background-color: transparent;
@@ -873,13 +1003,13 @@
             transition-duration: 1s;
         }
 
-        footer:hover{
+        footer:hover {
             height: 300px;
             background-color: rgba(168, 95, 0, 0.6);
         }
 
 
-        a.footer{
+        a.footer {
             color: black;
             text-decoration: none;
             width: 100%;
@@ -888,18 +1018,19 @@
             font-size: 15px;
         }
 
-        a.footer:hover{
-            text-decoration:underline;
+        a.footer:hover {
+            text-decoration: underline;
             font-size: 16px;
         }
-        small.footer{
+
+        small.footer {
             text-align: center;
             margin-left: 48%;
             text-decoration: none;
             color: rgb(168, 95, 0);
         }
 
-        div.hide{
+        div.hide {
             margin-left: 20px;
             text-align: center;
             margin-top: 0px;
@@ -908,48 +1039,48 @@
             float: left;
         }
 
-        div.sac{
+        div.sac {
             margin-left: 50px;
             float: left;
         }
 
-        
 
-        amp-img.sac-item{
+
+        amp-img.sac-item {
             box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
             margin-top: 10px;
         }
 
-        div.sac-item{
+        div.sac-item {
             width: 400px;
         }
 
-        span.sac-item{
+        span.sac-item {
             margin-left: 10px;
             text-align: left;
             top: 0;
             margin-top: 0px;
         }
 
-        div.site-map{
+        div.site-map {
             float: left;
         }
 
-        div.suport{
+        div.suport {
             margin-top: 0px;
             float: left;
             margin-left: 35px;
         }
 
-        ul.footer{
-            list-style:circle
+        ul.footer {
+            list-style: circle
         }
 
-        h2.site-map{
+        h2.site-map {
             line-height: 15px;
         }
 
-        h2.suport{
+        h2.suport {
             margin-left: 60px;
             line-height: 15px;
         }
@@ -963,46 +1094,108 @@
 </head>
 
 <body>
-    <amp-analytics type="gtag" data-credentials="include">
-        <script type="application/json">
-        {
-            "vars" : {
-                "gtag_id": "<UA-173702006-1>",
-                "config" : {
-                "<UA-173702006-1>": { "groups": "default" }
-                }
-            }
-        }
-        </script>
-    </amp-analytics>
-    <!--TOP NAV-->
-    <div class="topnav" amp-fx="float-in-top">
-        <div class="search">
-            <form class="search" method="GET" class="search_home" action="{% url 'search' %}">    
-                <input class="search" type="text" placeholder="Buscar">
-                <input class="search" type="submit">
-            </form>
 
-        </div>
-        <nav class="menu">
-            <div class="links">
-                <a class="menu" href="{% url 'contact' %}">CONTATO</a>
-                <a class="menu" href="{% url 'contact' %}">CONTATO</a>
+    <!--TOP NAV-->
+    <div class="nav">
+        <div class="topnav">
+            <div class="secure">
+                <ul class="secure">
+                    <li class="secure"><a class="secure" href="">Seguro</a></li>
+                    <li class="secure"><a class="secure" href="">Ajuda</a></li>
+                    <li class="secure"><a class="secure" href="">Chat</a></li>
+                </ul>
             </div>
-            <div class="logo">
-                <a class="logo" href="{% url 'home_product' %}">
-                    <h1 class="logo">Mega </h1>
-                    <h2 class="logo">Magazine</h2>
-                </a>
+            <div class="search">
+                <form class="search" method="GET" class="search_home" target="_top" action=".">
+                    <input class="search" type="text" placeholder="Buscar">
+                    <input class="search" type="submit">
+                </form>
+            </div>
+            <div class="idiom">
+
             </div>
             <div class="profile">
                 {% if not request.user.is_anonymous %}
-                    <a class="profile" href="{% url 'order_summary' %}">olá {{request.user}}</a>
+                <a class="profile" href="{% url 'order_summary' %}">olá {{request.user}}</a>
                 {% else %}
-                    <a href="profile" href=""></a>
+                <a href="profile" href=""></a>
                 {% endif %}
             </div>
-        </nav>
+        </div>
+
+        <div class="botnav" amp-fx="float-in-top">
+            <amp-mega-menu class="menu" layout="fixed-height" height="300px">
+                <nav class="botnav">
+                    <ul class="botnav">
+                        <li class="links">
+                            <div class="logo">
+                                <a class="logo" href="{% url 'home_product' %}">
+                                    <h1 class="logo">Mega 2</h1>
+                                    <h2 class="logo">Magazine</h2>
+                                </a>
+                            </div>
+                        </li>
+                        <!-- CATEGORYS -->
+                        <li class="links">
+                            <span role="button">Categorias</span>
+                            <div class="open" role="dialog">
+                                <div class="cat">
+                                    <div class="cat-links">
+                                        {% for t in tags %}
+                                        <div id="{{t|lower}}" class="cat-link">
+                                            <a class="cat" href="{% url 'list_product1' t %}">{{t}}</a>
+                                        </div>
+
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="cat-list">
+                                    {% for t in tags %}
+                                    <div class="cat-select" id="cat_{{t|lower}}">
+                                        {% for p in t.produto_set.all %}
+                                        <div class="cat-product">
+                                            <!--IMAGES-->
+                                            <div class='img'>
+                                                <amp-carousel lightbox controls autoplay delay="3000" width="250"
+                                                    height="250" layout="responsive" type="slides">
+                                                    {% for pic in p.images.all %}
+                                                    <amp-img src="{{ pic.image.url }}" width="250" height="150"
+                                                        layout="responsive" alt="{{ p.nome }}">
+                                                    </amp-img>
+                                                    {% endfor %}
+                                                </amp-carousel>
+                                            </div>
+                                            <!-- INFOS -->
+                                            <div class='infos-prod'>
+                                                <a class='cat-product' href="{% url 'detail_product' p.id %}">
+                                                    <h3>{{p.nome}} </h3>
+                                                </a>
+                                                <a class='cat-product' href="{% url 'detail_product' p.id %}">
+                                                    R$: {{ p.preco }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                        </li>
+                        <!-- CATEGORYS END -->
+                        <li class="links">
+                            <span role="button">OK</span>
+                            <div class="open" role="dialog">
+                                <amp-img src="{% static 'chat-icon.jpg' %}" width="1" height="1" layout="responsive"
+                                    alt="">
+                                </amp-img>
+                            </div>
+                        </li>
+                        <li class="links"><a class="links" href="{% url 'contact' %}">Ajuda</a></li>
+                        <li class="links"><a class="links" href="{% url 'contact' %}">Cadastro</a></lic>
+                        <li class="links"><a class="links" href="{% url 'contact' %}">Contato</a></li>
+                    </ul>
+                </nav>
+            </amp-mega-menu>
+        </div>
     </div>
     <!--TOP NAV END-->
     <!--BUTTO WHATS-->
@@ -1012,7 +1205,7 @@
             </amp-img>
         </a>
     </div>
-        <!--BUTTON Chat-->
+    <!--BUTTON Chat-->
     <div class="chat">
         <a href="{% url 'chat' %}" target="_blank">
             <amp-img src="{% static 'icons/chat-icon.png' %}" width="100" height="100" layout="intrinsic" alt="chat">
@@ -1020,6 +1213,9 @@
         </a>
     </div>
     <!--BLOCK-->
+
+    <amp-install-serviceworker src="{% url 'sw.js' %}" data-iframe-src="{% url 'install_sw' %}" layout="nodisplay">
+    </amp-install-serviceworker>
     <div class="page">
         {% block content %} {% endblock %}
     </div>
@@ -1037,29 +1233,22 @@
             <div class="footering">
                 <div class="sac">
                     <div class="sac-item">
-                        <amp-img class="sac-item" src="{% static 'icons/location3.png' %}"
-                        width="30"
-                        height="30"
-                        layout="fixed"
-                        alt="">
+                        <amp-img class="sac-item" src="{% static 'icons/location3.png' %}" width="30" height="30"
+                            layout="fixed" alt="">
                         </amp-img>
-                        <span class="sac-item footer-text">Av. Carlos Mariguella - n°737 loja 02 - Barroco, Maricá - RJ, 24936-435</span>
+                        <span class="sac-item footer-text">Av. Carlos Mariguella - n°737 loja 02 - Barroco, Maricá -
+                            RJ,
+                            24936-435</span>
                     </div>
                     <div class="sac-item">
-                        <amp-img class="sac-item" src="{% static 'icons/phone1.png' %}"
-                          width="30"
-                          height="30"
-                          layout="fixed"
-                          alt="">
+                        <amp-img class="sac-item" src="{% static 'icons/phone1.png' %}" width="30" height="30"
+                            layout="fixed" alt="">
                         </amp-img>
                         <span class="footer-text sac-item">(21)99453-4836</span>
                     </div>
                     <div class="sac-item">
-                        <amp-img class="sac-item" src="{% static 'icons/email1.png' %}"
-                          width="30"
-                          height="30"
-                          layout="fixed"
-                          alt="">
+                        <amp-img class="sac-item" src="{% static 'icons/email1.png' %}" width="30" height="30"
+                            layout="fixed" alt="">
                         </amp-img>
                         <span class="footer-text sac-item">jrmodas@contato.com</span>
                     </div>
@@ -1075,19 +1264,18 @@
                 </div>
                 <div class="hide">
                     <a href="{% url 'home_product' %}">
-                        <amp-img src="{% static 'icons/jftransparent5.png' %}"
-                        width="160"
-                        height="150"
-                        layout="fixed"
-                        alt="">
+                        <amp-img src="{% static 'icons/jftransparent5.png' %}" width="160" height="150" layout="fixed"
+                            alt="">
                         </amp-img>
                     </a>
                 </div>
                 <div class="suport">
                     <h2 class="footer-text suport">Suporte</h2>
                     <ul class="footer">
-                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Métodos de Pagamento</a></li>
-                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Política de Troca</a></li>
+                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Métodos de Pagamento</a>
+                        </li>
+                        <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Política de Troca</a>
+                        </li>
                         <li class="footer-text"><a class="footer" href="{% url 'suport' %}">Suporte Online</a></li>
                     </ul>
                 </div>
@@ -1104,7 +1292,42 @@
                 </div>
             </div>
         </footer>
+
     </div>
+    <h1 id="ok"></h1>
+
+    <amp-script script="cat-script" height="100px" width="100px">
+
+    </amp-script>
+
+    <script id="cat-script" type="text/javascript" target="amp-script">
+
+        function Showing(one) {
+            var v1 = document.getElementById(one);
+            v1.style.display = "flex";
+            console.log(v1);
+        };
+        function Hiding(one) {
+            var v1 = document.getElementById(one);
+            v1.style.display = "none";
+            console.log(v1);
+        };
+
+
+        function Category() {
+            var v1 = document.getElementsByClassName('cat-link');
+            var v2 = v1[0].getAttribute('id')
+            console.log('cat_' + v2)
+            for (o in v1) {
+                var v2 = v1[o].getAttribute('id')
+                v1[o].addEventListener('mouseover', Showing('cat_' + v2), false)
+            };
+            // v1.addEventListener("mouseover", Showing(v1.getAttribute("id")));
+        };
+
+        Category()
+
+    </script>
     <!-- End Footer -->
 </body>
 

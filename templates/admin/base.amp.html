@@ -10,10 +10,10 @@
     <link rel="canonical" href="{% url 'home_product' %}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <!-- AMP imports -->
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
+
     <script async custom-element="amp-lightbox-gallery"
         src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
@@ -25,7 +25,7 @@
     <!--AMP ANALYTICS-->
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <amp-analytics type="gtag" data-credentials="include">
-    <script type="application/json">
+        <script type="application/json">
     {
     "vars" : {
         "gtag_id": "<GA_MEASUREMENT_ID>",
@@ -38,7 +38,7 @@
     </amp-analytics>
 
     <!-- Google imports -->
-    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -134,14 +134,14 @@
 
 
         /* AMP MEGA-MENU*/
-        amp-mega-menu{
+        amp-mega-menu {
             margin-top: 0;
             background-color: blue;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(168, 95, 0, 1));
             height: 200px;
         }
 
-        nav.mega-menu{
+        nav.mega-menu {
             margin-top: 10px;
             background-color: blue;
             width: 100%;
@@ -151,104 +151,107 @@
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(168, 95, 0, 1));
         }
 
-        li.mega-menu{
+        li.mega-menu {
             top: 0;
             margin-left: 20px;
             font-family: 'Abril Fatface', cursive;
             font-size: 25px;
         }
 
-        a.links{
+        a.links {
             text-decoration: none;
             color: black;
         }
 
-        ol.mega-menu{
+        ol.mega-menu {
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(168, 95, 0, 1));
             list-style: none;
         }
+
         /* AMP MEGA-MENU END*/
         /*  HOME ADMIN */
         /*  HOME ADMIN END */
         /*  ALL PRODUCTS */
 
-        p.size{
+        p.size {
             color: blue;
         }
-        .pl15{
+
+        .pl15 {
             padding-left: 15px;
         }
 
-        tr.cart{
+        tr.cart {
             box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
         }
 
-        
-        tr.cart:hover{
+
+        tr.cart:hover {
             box-shadow: 10px 10px 10px 10px rgba(153, 70, 3, 0.2);
         }
 
-        td.cart{
+        td.cart {
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
+
         /*  ALL PRODUCTS END */
     </style>
 
 </head>
+
 <body>
     <amp-mega-menu height="60" layout="fixed-height">
         <nav class="mega-menu">
-          <ul>
-            <li class="mega-menu">
-                <a class="links" href="{% url 'admin_product' %}">Admin</a>
-            </li>
-            <li class="mega-menu">
-              <span role="button">Links</span>
-              <div role="dialog">
-                <ol class="mega-menu">
-                  <li> <a class="links" href="{% url 'home_product' %}">Home</a></li>
-                  <li> <a class="links" href="{% url 'list_product' %}">Produtos</a></li>
-                  <li> <a class="links" href="{% url 'contact' %}">Contact</a></li>
-                </ol>
-              </div>
-            </li>
-            <li class="mega-menu">
-                <span role="button">Produtos</span>
-                <div role="dialog">
-                  <ol class="mega-menu">
-                    <li> <a class="links" href="{% url 'all_products' %}">Todos Produtos</a></li>
-                    <li> <a class="links" href="{% url 'add_product' %}">Adicionar Produto</a></li>
-                    <li> <a class="links" href="{% url 'add_tags' %}">Adicionar Modelo</a></li>
-                    <li> <a class="links" href="{% url 'add_banner' %}">Todos Banners</a></li>
-                    <li> <a class="links" href="{% url 'add_banner' %}">Adicionar Banner</a></li>
-                  </ol>
-                </div>
-              </li>
-            <li class="mega-menu">
-                <span role="button">Pedidos</span>
-                <div role="dialog">
-                  <ol class="mega-menu">
-                    <li> <a class="links" href="{% url 'all_orders' %}">Todos Pedidos</a></li>
-                    <li> <a class="links" href="{% url 'all_orders' %}">Pedidos Pendentes</a></li>
-                    <li> <a class="links" href="{% url 'all_orders' %}">Todos Pedidos</a></li>
-                  </ol>
-                </div>
-              </li>
-              <li class="mega-menu">
-                <span role="button">Contas</span>
-                <div role="dialog">
-                  <ol class="mega-menu">
-                    <li> <a class="links" href="{% url 'login' %}">login</a></li>
-                    <li> <a class="links" href="{% url 'register' %}">register</a></li>
-                    <li> <a class="links" href="{% url 'logout' %}">logout</a></li>
-                  </ol>
-                </div>
-              </li>
-          </ul>
+            <ul>
+                <li class="mega-menu">
+                    <a class="links" href="{% url 'admin_product' %}">Admin</a>
+                </li>
+                <li class="mega-menu">
+                    <span role="button">Links</span>
+                    <div role="dialog">
+                        <ol class="mega-menu">
+                            <li> <a class="links" href="{% url 'home_product' %}">Home</a></li>
+                            <li> <a class="links" href="{% url 'list_product' %}">Produtos</a></li>
+                            <li> <a class="links" href="{% url 'contact' %}">Contact</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li class="mega-menu">
+                    <span role="button">Produtos</span>
+                    <div role="dialog">
+                        <ol class="mega-menu">
+                            <li> <a class="links" href="{% url 'all_products' %}">Todos Produtos</a></li>
+                            <li> <a class="links" href="{% url 'add_product' %}">Adicionar Produto</a></li>
+                            <li> <a class="links" href="{% url 'add_tags' %}">Adicionar Modelo</a></li>
+                            <li> <a class="links" href="{% url 'add_banner' %}">Todos Banners</a></li>
+                            <li> <a class="links" href="{% url 'add_banner' %}">Adicionar Banner</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li class="mega-menu">
+                    <span role="button">Pedidos</span>
+                    <div role="dialog">
+                        <ol class="mega-menu">
+                            <li> <a class="links" href="{% url 'all_orders' %}">Todos Pedidos</a></li>
+                            <li> <a class="links" href="{% url 'all_orders' %}">Pedidos Pendentes</a></li>
+                            <li> <a class="links" href="{% url 'all_orders' %}">Todos Pedidos</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li class="mega-menu">
+                    <span role="button">Contas</span>
+                    <div role="dialog">
+                        <ol class="mega-menu">
+                            <li> <a class="links" href="{% url 'login' %}">login</a></li>
+                            <li> <a class="links" href="{% url 'register' %}">register</a></li>
+                            <li> <a class="links" href="{% url 'logout' %}">logout</a></li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
         </nav>
-      </amp-mega-menu>
-      {% block content %}
-        
-      {% endblock %}
-</body>
+    </amp-mega-menu>
+    {% block content %}
 
+    {% endblock %}
+</body>

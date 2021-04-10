@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,10 +25,11 @@ SECRET_KEY = '__k)(1hqhyw00)^qgy=a6dwh(olnwt#t*idnee7xoc!1wzcupi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['f605ac306c86.ngrok.io', 'e69684bcadd0.ngrok.io', '127.0.0.1']
-
+ALLOWED_HOSTS = ['192.168.100.14', '127.0.0.1', 'fresh-mouse-80.loca.lt']
 
 # Application definition
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -114,6 +113,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 #imported
                 'django.template.context_processors.request',
+                #created
+                'products.context_processors.add_tags_base',
             ],
         },
     },
@@ -138,15 +139,15 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'megamagazine',
+        'NAME': 'megadb',
 
-        'USER': 'lucas27',
+        'USER': 'lucasrf',
 
         'PASSWORD': 'lukasfaria',
 
         'HOST': 'localhost',
 
-        'PORT': '',
+        'PORT': '5432',
 
     }
 
