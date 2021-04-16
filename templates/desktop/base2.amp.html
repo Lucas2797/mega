@@ -10,7 +10,7 @@
     <link rel="canonical" href="{% url 'home_product' %}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <!-- AMP imports -->
-    <meta name="amp-script-src" content="sha384-JrV0wXlCiZIZ9z0ZZSdvw23F1v96JeoQT5FG7GN0eXtL9HJLEAbmwR_GCpjf_gpL">
+    <meta name="amp-script-src" content="sha384-vTRgAvSDphWF8Uo1N6FDe2kQe2PEd67QnneqMtFcbJMOB4qVDk65BLWY9Web8AZa">
 
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
     <script async custom-element="amp-lightbox-gallery"
@@ -1139,46 +1139,51 @@
                         <li class="links">
                             <span role="button">Categorias</span>
                             <div class="open" role="dialog">
-                                <div class="cat">
-                                    <div class="cat-links">
+                                <amp-script style="border-style:dashed;" script="cat-script" layout="fill">
+                                    <div class="cat">
+                                        <div class="cat-links">
+                                            {% for t in tags %}
+                                            <div id="{{t|lower}}" class="cat-link">
+                                                <a class="cat" href="{% url 'list_product1' t %}">{{t}}</a>
+                                            </div>
+                                            ALOW dadasd
+                                            dwqdwqdwqdqwdqdq
+                                            po
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="cat-list">
                                         {% for t in tags %}
-                                        <div id="{{t|lower}}" class="cat-link">
-                                            <a class="cat" href="{% url 'list_product1' t %}">{{t}}</a>
-                                        </div>
-
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="cat-list">
-                                    {% for t in tags %}
-                                    <div class="cat-select" id="cat_{{t|lower}}">
-                                        {% for p in t.produto_set.all %}
-                                        <div class="cat-product">
-                                            <!--IMAGES-->
-                                            <div class='img'>
-                                                <amp-carousel lightbox controls autoplay delay="3000" width="250"
-                                                    height="250" layout="responsive" type="slides">
-                                                    {% for pic in p.images.all %}
-                                                    <amp-img src="{{ pic.image.url }}" width="250" height="150"
-                                                        layout="responsive" alt="{{ p.nome }}">
-                                                    </amp-img>
-                                                    {% endfor %}
-                                                </amp-carousel>
+                                        <div class="cat-select" id="cat_{{t|lower}}">
+                                            {% for p in t.produto_set.all %}
+                                            <div class="cat-product">
+                                                <!--IMAGES-->
+                                                <div class='img'>
+                                                    <amp-carousel lightbox controls autoplay delay="3000" width="250"
+                                                        height="250" layout="responsive" type="slides">
+                                                        {% for pic in p.images.all %}
+                                                        <amp-img src="{{ pic.image.url }}" width="250" height="150"
+                                                            layout="responsive" alt="{{ p.nome }}">
+                                                        </amp-img>
+                                                        {% endfor %}
+                                                    </amp-carousel>
+                                                </div>
+                                                <!-- INFOS -->
+                                                <div class='infos-prod'>
+                                                    <a class='cat-product' href="{% url 'detail_product' p.id %}">
+                                                        <h3>{{p.nome}} </h3>
+                                                    </a>
+                                                    <a class='cat-product' href="{% url 'detail_product' p.id %}">
+                                                        R$: {{ p.preco }}
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <!-- INFOS -->
-                                            <div class='infos-prod'>
-                                                <a class='cat-product' href="{% url 'detail_product' p.id %}">
-                                                    <h3>{{p.nome}} </h3>
-                                                </a>
-                                                <a class='cat-product' href="{% url 'detail_product' p.id %}">
-                                                    R$: {{ p.preco }}
-                                                </a>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                         {% endfor %}
                                     </div>
-                                    {% endfor %}
-                                </div>
+                                </amp-script>
+                            </div>
                         </li>
                         <!-- CATEGORYS END -->
                         <li class="links">
@@ -1294,36 +1299,36 @@
         </footer>
 
     </div>
-    <h1 id="ok"></h1>
+    <h1 id="ok">ok</h1>
 
     <amp-script script="cat-script" height="100px" width="100px">
 
     </amp-script>
 
-    <script id="cat-script" type="text/javascript" target="amp-script">
+    <script id="cat-script" type="text/plain" target="amp-script">
 
         function Showing(one) {
             var v1 = document.getElementById(one);
             v1.style.display = "flex";
-            console.log(v1);
+
         };
         function Hiding(one) {
             var v1 = document.getElementById(one);
             v1.style.display = "none";
-            console.log(v1);
+
         };
 
-
+        console.log('ok')
         function Category() {
             var v1 = document.getElementsByClassName('cat-link');
-            var v2 = v1[0].getAttribute('id')
-            console.log('cat_' + v2)
-            for (o in v1) {
-                var v2 = v1[o].getAttribute('id')
-                v1[o].addEventListener('mouseover', Showing('cat_' + v2), false)
+            for (let o of v1) {
+                let v2 = 'cat_' + o.id
+                o.addEventListener('mouseover', function () { Showing(v2) });
+                o.addEventListener('mouseout', function () { Hiding(v2) });
             };
             // v1.addEventListener("mouseover", Showing(v1.getAttribute("id")));
         };
+
 
         Category()
 
