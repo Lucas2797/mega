@@ -10,11 +10,52 @@
 </head>
 
 <body>
-    <h1 id="test">ok2</h1>
+    <div id="ok">
+        <h1>ok</h1>
+    </div>
+    <div id="ok2">
+        <h1>ok2</h1>
+    </div>
 
-    <input id="quest" type="text" value="10">
-    <h1>ok</h1>
 
+    <script id="cat-script" type="text/javascript">
+
+        function Showing(one) {
+            var v1 = document.getElementById(one);
+            v1.style.display = "flex";
+            console.log(v1);
+        };
+        function Hiding(one) {
+            var v1 = document.getElementById(one);
+            v1.style.display = "none";
+            console.log(v1);
+        };
+
+
+        function Category() {
+            var v1 = document.getElementsByClassName('cat-link');
+            var v2 = v1[0].getAttribute('id')
+            console.log('cat_' + v2)
+            for (o in v1) {
+                var v2 = v1[o].getAttribute('id')
+                v1[o].addEventListener('mouseover', Showing('cat_' + v2), false)
+            };
+            // v1.addEventListener("mouseover", Showing(v1.getAttribute("id")));
+        };
+        function displayDate() {
+            document.getElementById("ok").innerHTML = Date();
+        }
+
+        var v1 = document.getElementById("ok")
+        console.log(typeof v1)
+        document.getElementById("ok").addEventListener("click", function () { Hiding('ok2') });
+        // v1 = document.getElementById('ok');
+        // v1.addEventListener('mouseover', v1.style.color = 'green', false);
+        // v1.addEventListener('click', Hiding(v1.getAttribute('id')), true);
+
+        // Category()
+
+    </script>
 </body>
 
 </html>
