@@ -141,9 +141,9 @@ DATABASES = {
 
         'NAME': 'megadb',
 
-        'USER': 'lucasrf',
+        'USER': 'postgres',
 
-        'PASSWORD': 'lukasfaria',
+        'PASSWORD': 'data123',
 
         'HOST': 'localhost',
 
